@@ -1,0 +1,25 @@
+name: run unit tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -B build
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Run CI-safe tests
+        run: |
+          ctest \
+            --test-dir build \
+            -R ".*_unit" \
+            --output-on-failure

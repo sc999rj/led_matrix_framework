@@ -95,3 +95,45 @@ add_test(
     NAME version_tests
     COMMAND test_version_display
 )
+
+
+# -----------------------
+# CI / Unit Tests
+# -----------------------
+
+set(MOCK_SRCS
+    mocks.c
+)
+
+function(add_ci_test TESTNAME)
+    add_executable(${TESTNAME}
+        ${TESTNAME}.c
+        ${MOCK_SRCS}
+    )
+
+    target_link_libraries(${TESTNAME}
+        PRIVATE led_matrix
+    )
+
+    target_link_options(${TESTNAME}
+        PRIVATE
+        -Wl,--wrap=open
+        -Wl,--wrap=close
+        -Wl,--wrap=read
+        -Wl,--wrap=write
+        -Wl,--wrap=tcgetattr
+        -Wl,--wrap=tcsetattr
+        -Wl,--wrap=tcflush
+    )
+
+    add_test(
+        NAME ${TESTNAME}
+        COMMAND ${TESTNAME}
+    )
+endfunction()
+
+add_ci_test(test_bitmap_unit)
+add_ci_test(test_send_cmd_unit)
+add_ci_test(test_read_unit)
+add_ci_test(test_init_unit)
+add_ci_test(test_close_unit)
