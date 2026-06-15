@@ -56,4 +56,4 @@ The first thing to do is create a LEDMatrix type variable and initialize the con
 
 When the connection is no longer needed use **LEDMatrix_CLOSE** to close the connection.
 
-If look into the test folder for some examples or the doxygen docs: [![Documentation](https://github.com/sc999rj/led_matrix_framework/actions/workflows/docs.yml/badge.svg)](https://github.com/sc999rj/led_matrix_framework/actions/workflows/docs.yml).
+If look into the test folder for some examples or the doxygen docs: https://rubjud.github.io/led_matrix_framework/ [![Documentation](https://github.com/sc999rj/led_matrix_framework/actions/workflows/docs.yml/badge.svg)](https://github.com/sc999rj/led_matrix_framework/actions/workflows/docs.yml).
