@@ -1,0 +1,54 @@
+# Doxyfile
+
+PROJECT_NAME           = "LED Matrix API"
+PROJECT_BRIEF          = "Serial communication library for an LED matrix controller"
+PROJECT_NUMBER         = 1.0.0
+
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = NO
+
+OPTIMIZE_OUTPUT_FOR_C  = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+
+INPUT                  = .
+FILE_PATTERNS          = *.h *.c
+RECURSIVE              = YES
+
+USE_MDFILE_AS_MAINPAGE = README.md
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+
+GENERATE_LATEX         = NO
+GENERATE_XML           = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+CLASS_DIAGRAMS         = YES
+
+QUIET                  = NO
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+
+JAVADOC_AUTOBRIEF      = YES
+MULTILINE_CPP_IS_BRIEF = YES
+
+MARKDOWN_SUPPORT       = YES
+TOC_INCLUDE_HEADINGS   = 3
+
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = YES
+
+ALPHABETICAL_INDEX     = YES
+SEARCHENGINE           = YES
