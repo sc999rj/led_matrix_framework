@@ -87,11 +87,11 @@ int LEDMatrix_read(LEDMatrix *matrix, uint8_t *buff)
 
 uint8_t read_bitmap(const uint8_t bitmap[39], size_t col, size_t row)
 {
+    if (col > 8 || row > 33)
+        return 2; // out of bounds
     size_t i = col + 9 * row;
     size_t byte = i / 8;
     size_t bit = i % 8;
-    if (i >= 306)
-        return 2; // out of bounds
     return (bitmap[byte] >> bit) & 0x01;
 }
 

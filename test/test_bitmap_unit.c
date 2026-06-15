@@ -50,6 +50,7 @@ void test_oob_reads(void)
 
     assert(read_bitmap(bitmap,9,0)==2);
     assert(read_bitmap(bitmap,0,34)==2);
+    assert(read_bitmap(bitmap,9,34)==2);
     assert(read_bitmap(bitmap,999,999)==2);
 }
 
