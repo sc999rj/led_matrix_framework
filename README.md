@@ -1,4 +1,7 @@
-# C API for the framework 16 LED matrix
+# C API for the framework 16 LED matrix FOR
+
+> [NOTE] 
+> This API is made and tested for linux. I do not know if it also works on windows
 
 This library has been created by analyzing the CLI tool written in rust provided by the official github repo for framework 16 input modules as reference. Link: https://github.com/FrameworkComputer/InputModules
 
