@@ -29,11 +29,13 @@ typedef enum {
     LEDMAT_PATTERN = 0x01,
     /** Enter bootloader mode. */
     LEDMAT_BOOTLOADER = 0x02,
-    /** Change sleep state. */
+    /** Change sleep state. Use LEDMatrixSleepState to set the data*/
     LEDMAT_SLEEP = 0x03,
-    /** Draw a binary bitmap to the display. Does not need flushing */
+    /** Draw a binary bitmap to the display. Does not need flushing. 
+     * Data is a uint8_t[39] bitmap, i.e. 39 Bytes of which the first 306 bits are used (1 bit per LED)  */
     LEDMAT_DRAW_BINARY_BITMAP = 0x06,
-    /** Stage grayscale values for a column. */
+    /** Stage grayscale values for a column. Data is a uint8_t[35], 
+     * 1st Byte for column index and 34 Byte fot grayscale data for each LED in the column*/
     LEDMAT_STAGE_COLUMN_GRAYSCALE = 0x07,
     /** Flush staged grayscale column data to the display. */
     LEDMAT_FLUSH = 0x08,
@@ -141,7 +143,7 @@ uint8_t read_bitmap(const uint8_t bitmap[39], size_t col, size_t row) ;
 
 /**
  * @brief Set a pixel value in a packed binary bitmap.
- *
+ * 
  * The bitmap contains 306 pixels arranged as a 9×34 display and stored
  * in row-major order. Pixels are packed into 39 bytes.
  *
@@ -153,6 +155,11 @@ uint8_t read_bitmap(const uint8_t bitmap[39], size_t col, size_t row) ;
  * @param value Pixel value (0 or 1).
  */
 void set_bitmap_entry(uint8_t bitmap[39], size_t col, size_t row, uint8_t value);
+
+/**
+ * @brief set bitmap value for text rendering
+ */
+void set_bitmap_string(uint8_t bitmap[39], char str[], float scale );
 
 #ifdef __cplusplus
 }
